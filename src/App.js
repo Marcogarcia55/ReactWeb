@@ -1,15 +1,30 @@
-import React from 'react';
-import EmpleadosList from './Components/Empleado/EmpleadoList';
+import './App.css';
+import React, { useState } from 'react';
 import EmpleadoForm from './Components/Empleado/EmpleadoForm';
+import EmpleadoList from './Components/Empleado/EmpleadoList';
 
 function App() {
-    return (
-        <div className="App">
-            <h1>Gestión de Empleados</h1>
-            <EmpleadoForm />
-            <EmpleadosList />
+  const [showForm, setShowForm] = useState(false); // Estado para alternar entre la lista y el formulario
+
+  const handleToggleView = () => {
+    setShowForm(!showForm); // Cambia el valor de showForm al hacer clic en el botón
+  };
+
+  return (
+    <div className="App">
+      {showForm ? (
+        <div>
+          <EmpleadoForm />
+          <button onClick={handleToggleView}>Volver a la lista</button>
         </div>
-    );
+      ) : (
+        <div>
+          <EmpleadoList />
+          <button onClick={handleToggleView}>Agregar nuevo empleado</button>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default App;

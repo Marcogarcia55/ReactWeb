@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'https://jubilant-space-disco-v5j9w4q4j9xhwpp4-5260.app.github.dev/Empleado'; // Cambia esto por tu URL de la API
+const API_URL = 'https://jubilant-space-disco-v5j9w4q4j9xhwpp4-5260.app.github.dev/Empleado'; 
 
-// Obtener todos los empleados
 export const getAllEmpleados = async () => {
     try {
         const response = await axios.get(`${API_URL}`);
@@ -13,7 +12,6 @@ export const getAllEmpleados = async () => {
     }
 };
 
-// Obtener empleados por sucursal
 export const getEmpleadosBySucursal = async (sucursalId) => {
     try {
         const response = await axios.get(`${API_URL}/bySucursal/${sucursalId}`);
@@ -24,7 +22,6 @@ export const getEmpleadosBySucursal = async (sucursalId) => {
     }
 };
 
-// Obtener empleado por ID
 export const getEmpleadoById = async (id) => {
     try {
         const response = await axios.get(`${API_URL}/${id}`);
@@ -35,7 +32,6 @@ export const getEmpleadoById = async (id) => {
     }
 };
 
-// Crear un nuevo empleado
 export const createEmpleado = async (empleado) => {
     try {
         const response = await axios.post(`${API_URL}`, empleado);
@@ -46,7 +42,6 @@ export const createEmpleado = async (empleado) => {
     }
 };
 
-// Actualizar empleado
 export const updateEmpleado = async (empleado) => {
     try {
         const response = await axios.put(`${API_URL}`, empleado);
@@ -57,7 +52,6 @@ export const updateEmpleado = async (empleado) => {
     }
 };
 
-// Eliminar empleado
 export const deleteEmpleado = async (id) => {
     try {
         const response = await axios.delete(`${API_URL}/${id}`);

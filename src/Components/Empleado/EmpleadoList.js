@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { getAllEmpleados } from '../../Service/EmpleadoService'; // Importa desde Service
+import { getAllEmpleados } from '../../Service/EmpleadoService';
 
-const EmpleadosList = () => {
+export const EmpleadosList = () => {
     const [empleados, setEmpleados] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -27,13 +27,24 @@ const EmpleadosList = () => {
     return (
         <div>
             <h1>Lista de Empleados</h1>
-            <ul>
-                {empleados.map((empleado) => (
-                    <li key={empleado.id}>
-                        {empleado.nombre} - {empleado.sucursal}
-                    </li>
-                ))}
-            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Sucursal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {empleados.map((em) => (
+                        <tr key={em.id}>
+                            <td>{em.nombre}</td>
+                            <td>{em.apellido}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
         </div>
     );
 };
